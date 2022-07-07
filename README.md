@@ -29,3 +29,27 @@ No terminal selecione "Encrypt"
 Informe o valor a ser criptografado
 
 E no console sera fornecida a sua cheve
+
+
+
+
+# Exemplo
+*** Settings *** <br>
+Library           CryptoLibrary    variable_decryption=True<br>
+Library           SeleniumLibrary<br>
+Suite Teardown    Close Browser<br>
+
+
+*** Variables ***<br>
+'${senha}    crypt:ZY0RvpKOTA2a2DRRVfuCJ07iZNMOUriPyPeb1bp7X0SPHi84pfYORHp/mGw+FattY76ERVUC+W0=<br>
+
+*** Test Cases ***<br>
+First example test case<br>
+&nbsp;&nbsp;    Open Browser    &nbsp;&nbsp;https://www.exemplo.com/    &nbsp;&nbsp;gc<br>
+&nbsp;&nbsp;    Maximize Browser Window<br>
+&nbsp;&nbsp;    Input Text   &nbsp;&nbsp; id:user-name    standard_user<br>
+&nbsp;&nbsp;    Input Password    &nbsp;&nbsp;id:password    ${senha}<br>
+&nbsp;&nbsp;    Click Element    &nbsp;&nbsp;id:login-button<br>
+&nbsp;&nbsp;    Wait Until Page Contains  &nbsp;&nbsp; Products<br>
+
+   
